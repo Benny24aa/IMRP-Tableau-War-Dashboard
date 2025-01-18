@@ -328,3 +328,15 @@ mutate(date_killed = gsub("T", " ", date_killed), date_killed = gsub("Z", '', da
   mutate(date_killed = gsub(" .*","", date_killed))
 
 IMRP_Full_Census_File$date_killed <- as.Date(IMRP_Full_Census_File$date_killed)
+
+IMRP_Full_Census_File <- IMRP_Full_Census_File %>% 
+  mutate(Team_Kill = if_else(killedFactionId == killerFactionId, "Team Kill", "Not"))
+
+player_count <- IMRP_Full_Census_File %>% 
+  group_by(killedName, date_killed, War_ID, killedFactionId)  %>% 
+  summarise(count=n(), .groups = 'drop')
+
+player_count_final <- player_count %>% 
+  select(date_killed, War_ID, killedFactionId) %>% 
+  group_by(date_killed, War_ID, killedFactionId)  %>% 
+  summarise(count=n(), .groups = 'drop')
