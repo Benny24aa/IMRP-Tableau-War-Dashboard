@@ -322,3 +322,9 @@ rm(war_1_done,war_2_done, war_4_done, war_5_done, war_6_done, war_7_done,
    war_29_done, war_30_done, war_31_done, war_32_done, war_33_done, 
    war_34_done, war_35_done, war_36_done, war_37_done, war_38_done,
    war_39_done, war_40_done, war_41_done, war_42_done, war_43_done, war_44_done, war_45_done)
+
+IMRP_Full_Census_File <- IMRP_Full_Census_File %>% 
+mutate(date_killed = gsub("T", " ", date_killed), date_killed = gsub("Z", '', date_killed)) %>% 
+  mutate(date_killed = gsub(" .*","", date_killed))
+
+IMRP_Full_Census_File$date_killed <- as.Date(IMRP_Full_Census_File$date_killed)
