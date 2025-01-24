@@ -194,19 +194,19 @@ war_27_done <- war_27$kills %>%
 war_id_28_api_feed <- "https://launcher-api.sa-mp.im/api/v1/misc/war-export?war_id=28"
 war_28 <- fromJSON(war_id_28_api_feed)
 war_28_done <- war_28$kills %>% 
-  mutate(War_ID = "War 29")
+  mutate(War_ID = "War 28")
 
 ####### War ID 29
 war_id_29_api_feed <- "https://launcher-api.sa-mp.im/api/v1/misc/war-export?war_id=29"
 war_29 <- fromJSON(war_id_29_api_feed)
 war_29_done <- war_29$kills %>% 
-  mutate(War_ID = "War 30")
+  mutate(War_ID = "War 29")
 
 ####### War ID 30
 war_id_30_api_feed <- "https://launcher-api.sa-mp.im/api/v1/misc/war-export?war_id=30"
 war_30 <- fromJSON(war_id_30_api_feed)
 war_30_done <- war_30$kills %>% 
-  mutate(War_ID = "War 31")
+  mutate(War_ID = "War 30")
 
 ####### War ID 31
 war_id_31_api_feed <- "https://launcher-api.sa-mp.im/api/v1/misc/war-export?war_id=31"
