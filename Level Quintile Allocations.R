@@ -16,3 +16,14 @@ rm(IMRP_Full_Census_File_Level_List_killedID, IMRP_Full_Census_File_Level_List_k
 
 Player_IDs_List <- Player_IDs_List %>% 
   distinct()
+
+Player_IDs_List <- Player_IDs_List[order(Player_IDs_List$Player_ID),]
+
+# number of rows in data frame
+num_rows = nrow(Player_IDs_List)
+
+# creating ID column vector 
+ID <- c(1:num_rows)
+
+# binding id column to the data frame
+Player_IDs_List <- cbind(ID , Player_IDs_List)
