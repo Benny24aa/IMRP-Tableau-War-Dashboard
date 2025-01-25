@@ -19,6 +19,9 @@ Player_IDs_List <- Player_IDs_List %>%
 
 Player_IDs_List <- Player_IDs_List[order(Player_IDs_List$Player_ID),]
 
+Player_IDs_List <- Player_IDs_List %>% 
+  filter(!is.na(Player_ID))
+
 # number of rows in data frame
 num_rows = nrow(Player_IDs_List)
 
@@ -27,3 +30,14 @@ ID <- c(1:num_rows)
 
 # binding id column to the data frame
 Player_IDs_List <- cbind(ID , Player_IDs_List)
+
+Player_IDs_List <- Player_IDs_List %>% 
+mutate(
+  old = ID > 0 & ID <= 320,
+  not_as_old = ID > 320 & ID <= 320*2,
+  middle = ID > 320*2 & ID <= 320*3,
+  newer = ID > 320*3 & ID <= 320*4,
+  new = ID > 320*4 & ID <= 320*5,
+  future = ID > 320*5 & ID <= 320*6
+)
+  
