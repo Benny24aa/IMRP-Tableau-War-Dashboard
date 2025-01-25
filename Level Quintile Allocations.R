@@ -52,3 +52,22 @@ Player_IDs_List <- Player_IDs_List |>
 
 Player_IDs_List <- Player_IDs_List %>% 
   select(Player_ID, Level_Quintile)
+
+Player_IDs_List <- Player_IDs_List %>% 
+  rename(killedId = Player_ID)
+
+IMRP_Full_Census_File <- left_join(IMRP_Full_Census_File, Player_IDs_List, by = "killedId")
+
+IMRP_Full_Census_File <- IMRP_Full_Census_File %>% 
+  rename(Death_Level_Quintile = Level_Quintile)
+
+Player_IDs_List <- Player_IDs_List %>% 
+  rename(killerId = killedId)
+
+IMRP_Full_Census_File <- left_join(IMRP_Full_Census_File, Player_IDs_List, by = "killerId")
+
+IMRP_Full_Census_File <- IMRP_Full_Census_File %>% 
+  rename(Killer_Level_Quintile = Level_Quintile)
+
+
+
