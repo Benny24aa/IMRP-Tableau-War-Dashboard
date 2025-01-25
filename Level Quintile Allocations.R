@@ -40,4 +40,15 @@ mutate(
   new = ID > 320*4 & ID <= 320*5,
   future = ID > 320*5 & ID <= 320*6
 )
-  
+Player_IDs_List <- Player_IDs_List |>
+  mutate(Level_Quintile = case_when(
+    old == TRUE ~ "Group 1",
+    not_as_old == TRUE ~ "Group 2",
+    middle == TRUE ~ "Group 3",
+    newer == TRUE ~ "Group 4",
+    new == TRUE ~ "Group 5",
+    future == TRUE ~ "Group 6"
+  ))
+
+Player_IDs_List <- Player_IDs_List %>% 
+  select(Player_ID, Level_Quintile)
