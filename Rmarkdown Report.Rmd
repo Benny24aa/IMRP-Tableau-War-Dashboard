@@ -1,0 +1,28 @@
+---
+title: "War Report 45"
+fontsize: 20
+output:
+  word_document:
+    fig_caption: no
+
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, dpi = 300)
+
+```
+
+
+<Div custom-style = "Publication subtitle">  </Div>
+Extract date: `r format(Sys.Date(), '%d %B %Y')`    
+Contact: [Bennyy](mailto:harleyb101010@gmail.com)   
+
+## Background
+
+This report is based on war statistics across the IMRP Gaming Community. Each report explores different data depending on the war system at the time.
+
+## Figure 1: Number of deaths by faction 
+
+```{r deaths_graph, ft.align="left", fig.width=7, fig.height=4}
+War_Report_Daily_Death_Count_By_Faction_Data_Graph 
+```
